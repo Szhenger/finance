@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for holding in holdings %}
+            <tr>
+                <td>{{ holding.symbol }}</td>
+                <td>{{ holding.shares }}</td>
+                <td>{{ holding.price | usd }}</td>
+                <td>{{ holding.total | usd }}</td>
+                <td>{{ holding.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+{% endblock %}
